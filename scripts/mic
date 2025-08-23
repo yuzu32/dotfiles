@@ -1,0 +1,2 @@
+#!/bin/bash
+pactl set-default-source alsa_input.usb-Razer_Inc._Razer_Seiren_V3_Mini-00.mono-fallback

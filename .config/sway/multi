@@ -1,25 +1,24 @@
 include "config"
 
 output $d_main {
-  scale 1.2
-  pos 0 1080
+  pos 0 0
   bg $wallpaper fill
 }
 output $d_ext {
-  pos 0 0
+  pos 1920 0
   mode 1920x1080@239.964Hz
   bg $wallpaper fill
 }
 
 workspace {
-  $ws1  output $d_main
-  $ws2  output $d_main
-  $ws3  output $d_main
-  $ws4  output $d_main
-  $ws5  output $d_main
+  $ws1  output $d_ext
+  $ws2  output $d_ext
+  $ws3  output $d_ext
+  $ws4  output $d_ext
+  $ws5  output $d_ext
   $ws6  output $d_ext
   $ws7  output $d_ext
   $ws8  output $d_ext
-  $ws9  output $d_ext
-  $ws10 output $d_ext
+  $ws9  output $d_main
+  $ws10 output $d_main
 }

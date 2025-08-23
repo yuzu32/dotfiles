@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#podman run -it -p 9090:9090 ghcr.io/collabora/whisperlive-cpu:latest
+podman run -it --gpus all -p 9090:9090 ghcr.io/collabora/whisperlive-gpu:latest

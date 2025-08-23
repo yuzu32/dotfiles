@@ -25,7 +25,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 # input
-input "1267:12486:ELAN1200:00_04F3:30C6_Touchpad" {
+input "1267:12952:ELAN07C7:00_04F3:3298_Touchpad" {
   dwt enabled
   tap enabled
   natural_scroll enabled
@@ -34,9 +34,9 @@ input "1267:12486:ELAN1200:00_04F3:30C6_Touchpad" {
 # display
 
 set $d_main eDP-1
-set $d_ext HDMI-A-1
+set $d_ext DP-2
 
-set $wallpaper /home/yamu/Pictures/Wallpapers/wallhaven-d6j79o_1920x1080.png
+set $wallpaper ~/Pictures/Wallpapers/needy_girl.jpg
 
 # sway options
 font pango:Comfortaa SemiBold 10
@@ -58,8 +58,9 @@ gaps {
   inner 0px
 }
 
-client.focused   #191724 #191724 #c4a7e7 #191724 #191724
-client.unfocused #26233a #26233a #e0def4 #26233a #26233a
+client.focused          #191724 #191724 #c4a7e7 #191724 #191724
+client.focused_inactive #26233a #26233a #e0def4 #26233a #26233a
+client.unfocused        #26233a #26233a #e0def4 #26233a #26233a
 
 bar {
   id 0
@@ -99,7 +100,7 @@ bindsym {
   $mod+f fullscreen
   $mod+Shift+space floating toggle
   $mod+space focus mode_toggle
-  $mod+Tab layout tabbed
+  #$mod+Tab layout tabbed
 
   # split tiles
   $mod+b splith
@@ -108,7 +109,8 @@ bindsym {
   # launch apps
   $mod+Return exec $term
   $mod+d exec $menu
-  Print exec "flatpak run org.flameshot.Flameshot gui --path ~/Pictures/Screenshots/ --raw | wl-copy"
+  $mod+Shift+s exec "flatpak run org.flameshot.Flameshot gui --path ~/Pictures/Screenshots/ --raw | wl-copy"
+  #Print exec "flatpak run org.flameshot.Flameshot gui --path ~/Pictures/Screenshots/ --raw | wl-copy"
 
   # resize mode
   $mod+r mode "resize"
@@ -147,7 +149,7 @@ bindsym {
 
   # lock & suspend
   $mod+s exec swaylock -f -c 000000
-  --locked $mod+a exec /home/yamu/Scripts/toggledisplay.sh
+  --locked $mod+a exec ~/scripts/toggledp
 }
 
 mode "resize" {

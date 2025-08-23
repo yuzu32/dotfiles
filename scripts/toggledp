@@ -1,0 +1,4 @@
+#!/bin/bash
+
+swaymsg "output eDP-1 dpms toggle"
+swaymsg "output DP-2 dpms toggle"
