@@ -1,9 +1,10 @@
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # vars
-set $mod Mod1
+set $mod Mod4
 
 set $left h
 set $down j
@@ -36,7 +37,7 @@ input "1267:12952:ELAN07C7:00_04F3:3298_Touchpad" {
 set $d_main eDP-1
 set $d_ext DP-2
 
-set $wallpaper ~/Pictures/Wallpapers/needy_girl.jpg
+set $wallpaper ~/Pictures/Wallpapers/yuzuha.jpg
 
 # sway options
 font pango:Comfortaa SemiBold 10
@@ -109,8 +110,8 @@ bindsym {
   # launch apps
   $mod+Return exec $term
   $mod+d exec $menu
-  $mod+Shift+s exec "flatpak run org.flameshot.Flameshot gui --path ~/Pictures/Screenshots/ --raw | wl-copy"
-  #Print exec "flatpak run org.flameshot.Flameshot gui --path ~/Pictures/Screenshots/ --raw | wl-copy"
+  $mod+Shift+s exec grim -g "$(slurp -b 00000060 -c ffffff)" - | wl-copy --type image/png
+  #$mod+Shift+s exec "flatpak run org.flameshot.Flameshot gui --path ~/Pictures/Screenshots/ --raw | wl-copy"
 
   # resize mode
   $mod+r mode "resize"

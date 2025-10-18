@@ -12,10 +12,10 @@ export QT_SCREEN_SCALE_FACTORS="1;1"
 export MOZ_ENABLE_WAYLAND=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
-if [ "$1" == "e" ]; then
-    exec sway --unsupported-gpu -c ~/.config/sway/extern
+DP2="/sys/class/drm/card1-DP-2/status"
+
+if [ -f "$DP2" ] && [ "$(cat "$DP2")" == "connected" ]; then
+    exec sway --unsupported-gpu -c ~/.config/sway/multi
 elif [ "$1" == "s" ]; then
     exec sway --unsupported-gpu -c ~/.config/sway/single
-else
-    exec sway --unsupported-gpu -c ~/.config/sway/multi
 fi
